@@ -2,9 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<p th:text = "'Welcome to TWAirline'"/>
+    <div>
+        <p th:text="'Welcome to TWAirline'"/>
+        <Form action="#" th:action="@{/search}" th:object="${searchDetails}" method="post">
+            <select id="from" name="from" required="required">
+                <option value="" disabled="disabled" selected="selected">From</option>
+                <option th:each="location :${locations}" th:value="${location}" th:text="${location}"></option>
+            </select>
+            <select id="to" name="to" required="required">
+                <option value="" disabled="disabled" selected="selected">To</option>
+                <option th:each="location :${locations}" th:value="${location}" th:text="${location}"></option>
+            </select>
+            <input type="submit" value="Find Flights"/>
+        </Form>
+        <br/><br/>
+        <table border="1">
+            <th>number</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Departure Time</th>
+            <th>Arrival Time</th>
+            <th>Total Cost</th>
+            <tr th:each="flight:${flights}">
+                <td th:text="${flight.number}"></td>
+                <td th:text="${flight.source}"></td>
+                <td th:text="${flight.destination}"></td>
+                <td th:text="${flight.departureTime.getTime()}"></td>
+                <td th:text="${flight.arrivalTime.getTime()}"></td>
+                <td th:text="${flightPriceMap.get(flight.number)}"></td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
