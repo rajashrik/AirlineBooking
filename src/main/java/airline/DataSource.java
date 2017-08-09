@@ -18,4 +18,25 @@ public class DataSource {
         return locations;
     }
 
+    public List<Plane> fetchPlanes() {
+        List<Plane> planes = new ArrayList<Plane>();
+        planes.add(new Plane("Boeing777-200LR(77L)", 238));
+        planes.add(new Plane("Airbus A319 V2", 144));
+        planes.add(new Plane("Airbus A321", 172));
+        return planes;
+    }
+
+    public List<Flight> fetchFlights() {
+        List<Flight> flights = new ArrayList<Flight>();
+        List<Plane> planes = fetchPlanes();
+        Flight flight1 = new Flight("Hyderabad","Pune", planes.get(0),"F1");
+        Flight flight2 = new Flight("Hyderabad","Bangalore", planes.get(1),"F2");
+        Flight flight3 = new Flight("Pune","Bangalore", planes.get(2),"F3");
+
+        flights.add(flight1);
+        flights.add(flight2);
+        flights.add(flight3);
+
+        return flights;
+    }
 }

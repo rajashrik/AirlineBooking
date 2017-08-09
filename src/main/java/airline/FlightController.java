@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Created by rajashrk on 8/8/17.
  */
@@ -28,9 +31,11 @@ public class FlightController {
     }
 
     @RequestMapping(value= "/search", method = RequestMethod.POST)
-    public String searchFlights(@ModelAttribute(value="searchDetails") SearchDetails searchDetails, Model model) {
+    public String searchFlights(@ModelAttribute(value="searchDetails") final SearchDetails searchDetails, Model model) {
         model.addAttribute("locations",DataSource.instance().fetchLocations());
-        model.addAttribute("to",searchDetails.getTo());
+        List<Flight> flights = DataSource.instance().fetchFlights();
+        List<Flight> matchingFlights = SearchUtility.getMatchingFlights(flights, searchDetails);
+        model.addAttribute("flights",matchingFlights);
         return "flightSearch";
     }
 
