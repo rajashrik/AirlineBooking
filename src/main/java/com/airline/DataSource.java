@@ -1,4 +1,4 @@
-package airline;
+package com.airline;
 
 import java.util.ArrayList;
 import java.util.Calendar;

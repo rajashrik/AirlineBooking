@@ -1,4 +1,4 @@
-package airline;
+package com.airline;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by rajashrk on 8/8/17.

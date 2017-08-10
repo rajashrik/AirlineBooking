@@ -1,4 +1,4 @@
-package airline;
+package com.airline;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
