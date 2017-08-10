@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * Created by rajashrk on 8/9/17.
  */
-public final class SearchUtility {
+public final class SearchFlights {
 
     public static List<Flight> bySourceAndDestination(List<Flight> flights, SearchDetails searchDetails){
         List<Flight> matchingFlights = flights.stream()

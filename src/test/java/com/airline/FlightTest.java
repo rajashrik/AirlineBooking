@@ -27,8 +27,8 @@ public class FlightTest {
     @Test
     public void shouldHaveSourceAndDestination() throws Exception {
         Flight flight = new Flight(source,destination,plane,"F12",departure,departure);
-        Assert.assertEquals(flight.getDestination(),"Kolkata");
-        Assert.assertEquals(flight.getSource(),"Pune");
+        Assert.assertEquals("Kolkata", flight.getDestination());
+        Assert.assertEquals("Pune", flight.getSource());
     }
 
 }

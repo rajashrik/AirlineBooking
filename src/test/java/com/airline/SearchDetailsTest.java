@@ -29,6 +29,6 @@ public class SearchDetailsTest {
         SearchDetails details = new SearchDetails();
         details.setDepartureDate("2017-09-10");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-        Assert.assertEquals(dateFormat.format(details.getDepartureDate().getTime()),"20170910");
+        Assert.assertEquals("20170910", dateFormat.format(details.getDepartureDate().getTime()));
     }
 }
