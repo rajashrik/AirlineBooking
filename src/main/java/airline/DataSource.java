@@ -1,6 +1,8 @@
 package airline;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -29,9 +31,12 @@ public class DataSource {
     public List<Flight> fetchFlights() {
         List<Flight> flights = new ArrayList<Flight>();
         List<Plane> planes = fetchPlanes();
-        Flight flight1 = new Flight("Hyderabad","Pune", planes.get(0),"F1");
-        Flight flight2 = new Flight("Hyderabad","Bangalore", planes.get(1),"F2");
-        Flight flight3 = new Flight("Pune","Bangalore", planes.get(2),"F3");
+        Calendar departure = new GregorianCalendar(2017,8,10, 9, 10, 0);
+        Calendar arrival = new GregorianCalendar(2017,8,10, 10, 10, 0);
+
+        Flight flight1 = new Flight("Hyderabad", "Pune", planes.get(0), "F1",departure,arrival);
+        Flight flight2 = new Flight("Hyderabad","Bangalore", planes.get(1),"F2",departure,arrival);
+        Flight flight3 = new Flight("Pune","Bangalore", planes.get(2),"F3",departure,arrival);
 
         flights.add(flight1);
         flights.add(flight2);

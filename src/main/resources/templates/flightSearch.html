@@ -16,6 +16,7 @@
                 <option value="" disabled="disabled" selected="selected">To</option>
                 <option th:each="location :${locations}" th:value="${location}" th:text="${location}"></option>
             </select>
+            <input id="departureDate" name="departureDate" type="date"/>
             <input type="submit" value="Find Flights"/>
         </Form>
         <br/><br/>

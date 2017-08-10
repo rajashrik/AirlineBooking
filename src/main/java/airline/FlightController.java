@@ -34,7 +34,8 @@ public class FlightController {
     public String searchFlights(@ModelAttribute(value="searchDetails") final SearchDetails searchDetails, Model model) {
         model.addAttribute("locations",DataSource.instance().fetchLocations());
         List<Flight> flights = DataSource.instance().fetchFlights();
-        List<Flight> matchingFlights = SearchUtility.getMatchingFlights(flights, searchDetails);
+        List<Flight> matchingFlights = SearchUtility.bySourceAndDestination(flights, searchDetails);
+        matchingFlights =  SearchUtility.byDepartureDate(matchingFlights,searchDetails);
         model.addAttribute("flights",matchingFlights);
         return "flightSearch";
     }
