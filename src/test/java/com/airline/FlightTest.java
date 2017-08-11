@@ -28,9 +28,9 @@ public class FlightTest {
         destination = "Kolkata";
         plane = new Plane("Airbus A319 V2",70);
         departure = new GregorianCalendar(2017,0,1,1,2,3);
-        travelClassEconomy = new TravelClass(ClassType.ECONOMY,10);
-        travelClassBusiness = new TravelClass(ClassType.BUSINESS,10);
-        travelClassFirst = new TravelClass(ClassType.FIRST,10);
+        travelClassEconomy = new TravelClass(ClassType.ECONOMY,10,6000.0);
+        travelClassBusiness = new TravelClass(ClassType.BUSINESS,10,13000.0);
+        travelClassFirst = new TravelClass(ClassType.FIRST,10,20000.0);
         travelClassesList.add(travelClassBusiness);
         travelClassesList.add(travelClassEconomy);
         travelClassesList.add(travelClassFirst);

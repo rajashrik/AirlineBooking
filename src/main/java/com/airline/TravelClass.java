@@ -7,11 +7,13 @@ public class TravelClass {
     private ClassType classType;
     private Integer availableSeats;
     private Integer totalSeats;
+    private Double basePrice;
 
-    public TravelClass(ClassType classType, Integer totalSeats) {
+    public TravelClass(ClassType classType, Integer totalSeats, Double basePrice) {
         this.classType = classType;
-        this.availableSeats = totalSeats;
         this.totalSeats = totalSeats;
+        this.basePrice = basePrice;
+        this.availableSeats = totalSeats;
     }
 
     public ClassType getClassType() {
@@ -24,6 +26,14 @@ public class TravelClass {
 
     public Integer getTotalSeats() {
         return totalSeats;
+    }
+
+    public Double getBasePrice() {
+        return basePrice;
+    }
+
+    public void setBasePrice(Double basePrice) {
+        this.basePrice = basePrice;
     }
 
     public  boolean bookSeat(Integer numberOfSeats) {

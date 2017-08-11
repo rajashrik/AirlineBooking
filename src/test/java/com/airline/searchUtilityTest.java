@@ -29,9 +29,9 @@ public class searchUtilityTest {
         departure = new GregorianCalendar(2017,0,1,1,2,3);
 
         List<TravelClass> travelClassesList = new ArrayList<TravelClass>();
-        TravelClass travelClassEconomy = new TravelClass(ClassType.ECONOMY,10);
-        TravelClass travelClassBusiness = new TravelClass(ClassType.BUSINESS,10);
-        TravelClass travelClassFirst = new TravelClass(ClassType.FIRST,10);
+        TravelClass travelClassEconomy = new TravelClass(ClassType.ECONOMY,10,6000.0);
+        TravelClass travelClassBusiness = new TravelClass(ClassType.BUSINESS,10,13000.0);
+        TravelClass travelClassFirst = new TravelClass(ClassType.FIRST,10,20000.0);
         travelClassesList.add(travelClassBusiness);
         travelClassesList.add(travelClassEconomy);
         travelClassesList.add(travelClassFirst);

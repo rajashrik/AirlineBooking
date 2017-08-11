@@ -37,6 +37,7 @@ public class FlightController {
         matchingFlights =  SearchFlights.byDepartureDate(matchingFlights,searchDetails);
         matchingFlights =  SearchFlights.byAvailableSeats(matchingFlights,searchDetails);
         model.addAttribute("flights",matchingFlights);
+        model.addAttribute("flightPriceMap", new RateCalculator().getPriceMap(matchingFlights,searchDetails.getClassType(),searchDetails.getNumberOfPassengers()));
         return "flightSearch";
     }
 }

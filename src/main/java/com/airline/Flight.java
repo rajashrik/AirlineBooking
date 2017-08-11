@@ -55,8 +55,17 @@ public class Flight {
     }
 
     public boolean bookFlight(String classType, Integer numberOfSeatsTobeBooked) {
+        return getTravelClassFromClassType(classType).bookSeat(numberOfSeatsTobeBooked);
+    }
+
+    public Double getBasePrice(String classType) {
+        TravelClass travelClass = getTravelClassFromClassType(classType);
+        return travelClass.getBasePrice();
+    }
+
+    private TravelClass getTravelClassFromClassType(String classType) {
         ClassType type = ClassType.valueOf(classType.toUpperCase());
         TravelClass travelClass = classTypesMap.get(type);
-        return travelClass.bookSeat(numberOfSeatsTobeBooked);
+        return travelClass;
     }
 }
