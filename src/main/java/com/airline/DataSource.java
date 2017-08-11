@@ -34,14 +34,25 @@ public class DataSource {
         Calendar departure = new GregorianCalendar(2017,8,10, 9, 10, 0);
         Calendar arrival = new GregorianCalendar(2017,8,10, 10, 10, 0);
 
-        Flight flight1 = new Flight("Hyderabad", "Pune", planes.get(0), "F1",departure,arrival);
-        Flight flight2 = new Flight("Hyderabad","Bangalore", planes.get(1),"F2",departure,arrival);
-        Flight flight3 = new Flight("Pune","Bangalore", planes.get(2),"F3",departure,arrival);
+        Flight flight1 = new Flight("Hyderabad", "Pune", planes.get(0), "F1",departure,arrival, getTravelClasses());
+        Flight flight2 = new Flight("Hyderabad","Bangalore", planes.get(1),"F2",departure,arrival, getTravelClasses());
+        Flight flight3 = new Flight("Pune","Bangalore", planes.get(2),"F3",departure,arrival,getTravelClasses());
 
         flights.add(flight1);
         flights.add(flight2);
         flights.add(flight3);
 
         return flights;
+    }
+
+    private List<TravelClass> getTravelClasses() {
+        List<TravelClass> travelClassesList = new ArrayList<TravelClass>();
+        TravelClass travelClassEconomy = new TravelClass(ClassType.ECONOMY,10);
+        TravelClass travelClassBusiness = new TravelClass(ClassType.BUSINESS,10);
+        TravelClass travelClassFirst = new TravelClass(ClassType.FIRST,10);
+        travelClassesList.add(travelClassBusiness);
+        travelClassesList.add(travelClassEconomy);
+        travelClassesList.add(travelClassFirst);
+        return travelClassesList;
     }
 }

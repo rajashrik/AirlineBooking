@@ -35,6 +35,14 @@ public final class SearchFlights {
 
         return matchingFlights;
     }
+
+    public static List<Flight> byAvailableSeats(List<Flight> flights, SearchDetails searchDetails) {
+        List<Flight> matchingFlight = flights.stream().filter(flight ->
+            flight.bookFlight(searchDetails.getClassType(),searchDetails.getNumberOfPassengers()))
+            .collect(Collectors.toList());
+
+        return matchingFlight;
+    }
 }
 
 

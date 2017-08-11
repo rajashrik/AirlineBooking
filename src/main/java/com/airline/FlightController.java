@@ -35,6 +35,7 @@ public class FlightController {
         List<Flight> flights = DataSource.instance().fetchFlights();
         List<Flight> matchingFlights = SearchFlights.bySourceAndDestination(flights, searchDetails);
         matchingFlights =  SearchFlights.byDepartureDate(matchingFlights,searchDetails);
+        matchingFlights =  SearchFlights.byAvailableSeats(matchingFlights,searchDetails);
         model.addAttribute("flights",matchingFlights);
         return "flightSearch";
     }

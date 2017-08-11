@@ -10,6 +10,16 @@ public class SearchDetails {
    private String from;
    private String to;
    private Calendar departureDate;
+   private Integer numberOfPassengers;
+   private String classType;
+
+    public void setNumberOfPassengers(Integer numberOfPassengers) {
+        this.numberOfPassengers = numberOfPassengers;
+    }
+
+    public Integer getNumberOfPassengers() {
+        return numberOfPassengers;
+    }
 
     public void setFrom(String from) {
         this.from = from;
@@ -40,5 +50,13 @@ public class SearchDetails {
 
     public Calendar getDepartureDate() {
         return departureDate;
+    }
+
+    public String getClassType() {
+        return classType;
+    }
+
+    public void setClassType(String classType) {
+        this.classType = classType;
     }
 }

@@ -17,6 +17,13 @@
                 <option th:each="location :${locations}" th:value="${location}" th:text="${location}"></option>
             </select>
             <input id="departureDate" name="departureDate" type="date"/>
+            <select id="classType" name="classType" required="required">
+                <option value="" disabled="disabled" selected="selected">ClassType</option>
+                <option value="Economy">Economy</option>
+                <option value="Business">Business</option>
+                <option value="First">First</option>
+            </select>
+            <input id="numberOfPassenger" name="numberOfPassengers" type="number" value="1"/>
             <input type="submit" value="Find Flights"/>
         </Form>
         <br/><br/>

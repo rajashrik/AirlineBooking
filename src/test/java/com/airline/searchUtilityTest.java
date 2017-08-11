@@ -28,9 +28,17 @@ public class searchUtilityTest {
         plane = new Plane("Airbus A319 V2",70);
         departure = new GregorianCalendar(2017,0,1,1,2,3);
 
-        flight1 = new Flight("Pune", "Kolkata",plane,"F1",departure,departure);
-        flight2 = new Flight("Pune", "Kolkata",plane,"F2",departure,departure);
-        flight3 = new Flight("Hyderabad", "Nashik",plane,"F1",departure,departure);
+        List<TravelClass> travelClassesList = new ArrayList<TravelClass>();
+        TravelClass travelClassEconomy = new TravelClass(ClassType.ECONOMY,10);
+        TravelClass travelClassBusiness = new TravelClass(ClassType.BUSINESS,10);
+        TravelClass travelClassFirst = new TravelClass(ClassType.FIRST,10);
+        travelClassesList.add(travelClassBusiness);
+        travelClassesList.add(travelClassEconomy);
+        travelClassesList.add(travelClassFirst);
+
+        flight1 = new Flight("Pune", "Kolkata",plane,"F1",departure,departure,travelClassesList);
+        flight2 = new Flight("Pune", "Kolkata",plane,"F2",departure,departure,travelClassesList);
+        flight3 = new Flight("Hyderabad", "Nashik",plane,"F1",departure,departure,travelClassesList);
 
         flights.add(flight1);
         flights.add(flight2);
@@ -40,6 +48,8 @@ public class searchUtilityTest {
         searchDetails.setTo("Kolkata");
         searchDetails.setFrom("Pune");
         searchDetails.setDepartureDate("2017-01-01");
+        searchDetails.setNumberOfPassengers(10);
+        searchDetails.setClassType("Economy");
     }
 
     @Test
@@ -67,5 +77,21 @@ public class searchUtilityTest {
         List<Flight> matchedFlights = SearchFlights.bySourceAndDestination(flights,searchDetails);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         Assert.assertEquals("20170101", dateFormat.format(matchedFlights.get(0).getDepartureTime().getTime()));
+    }
+
+    @Test
+    public void ShouldHaveFlightCountAsNonZeroIfSeatsAvailableInGivenClass() throws Exception {
+        int expectedCount = 1;
+        List<Flight> matchedFlights = SearchFlights.byAvailableSeats(flights,searchDetails);
+        Assert.assertEquals(expectedCount,matchedFlights.size());
+
+    }
+
+    @Test
+    public void ShouldHaveFlightCountAsZeroIfNoAvailableSeatsInGivenClass() throws Exception {
+        int expectedCount = 0;
+        searchDetails.setNumberOfPassengers(11);
+        List<Flight> matchedFlights = SearchFlights.byAvailableSeats(flights,searchDetails);
+        Assert.assertEquals(expectedCount,matchedFlights.size());
     }
 }
