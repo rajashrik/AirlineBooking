@@ -31,8 +31,9 @@ public class DataSource {
     public List<Flight> fetchFlights() {
         List<Flight> flights = new ArrayList<Flight>();
         List<Plane> planes = fetchPlanes();
-        Calendar departure = new GregorianCalendar(2017,8,10, 9, 10, 0);
-        Calendar arrival = new GregorianCalendar(2017,8,10, 10, 10, 0);
+        Calendar departure = new GregorianCalendar();
+        Calendar arrival = new GregorianCalendar();
+        arrival.set(Calendar.HOUR_OF_DAY, arrival.get(Calendar.HOUR_OF_DAY) + 5);
 
         Flight flight1 = new Flight("Hyderabad", "Pune", planes.get(0), "F1",departure,arrival, getTravelClasses());
         Flight flight2 = new Flight("Hyderabad","Bangalore", planes.get(1),"F2",departure,arrival, getTravelClasses());

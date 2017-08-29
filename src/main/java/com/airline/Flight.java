@@ -63,7 +63,7 @@ public class Flight {
         return travelClass.getBasePrice();
     }
 
-    private TravelClass getTravelClassFromClassType(String classType) {
+    TravelClass getTravelClassFromClassType(String classType) {
         ClassType type = ClassType.valueOf(classType.toUpperCase());
         TravelClass travelClass = classTypesMap.get(type);
         return travelClass;
